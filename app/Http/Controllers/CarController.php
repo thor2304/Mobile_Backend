@@ -12,6 +12,6 @@ class CarController extends Controller
      */
     public function getAll(): array
     {
-        return [new Car()];
+        return [new Car("BMW", "M5"), new Car("Tesla", "Model S")];
     }
 }
