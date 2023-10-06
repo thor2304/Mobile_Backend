@@ -12,7 +12,7 @@ class Car implements JsonSerializable
     public function __construct()
     {
         $this->make = "Mercedes";
-        $this->model = "S500";
+        $this->model = "E500";
     }
 
     public function __toString(): string
