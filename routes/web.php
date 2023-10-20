@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/cars');
 });
-
 Route::get('/cars', [CarController::class, 'getAll']);
 Route::post('/cars', [CarController::class, 'store']);
 Route::get('/cars/hash', [CarController::class, 'hashAll']);
