@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ManufacturerController;
+use App\Http\Controllers\RentalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [CarController::class, 'getAll']);
+Route::get('/', function () {
+    return redirect('/cars');
+});
 Route::get('/cars', [CarController::class, 'getAll']);
+Route::post('/cars', [CarController::class, 'store']);
+Route::get('/cars/hash', [CarController::class, 'hashAll']);
+
+Route::get('/car/{car}', [CarController::class, 'get']);
+
 Route::get('/manufacturers', [ManufacturerController::class, 'getAll']);
-Route::get('/cars/hash', [CarController::class, 'getAll']);
-Route::get('/car/{Car}', [CarController::class, 'getAll']);
-Route::post('/car/{Car}', [CarController::class, 'getAll']);
-Route::get('/rentals', [CarController::class, 'getAll']);
-Route::post('/rentals', [CarController::class, 'getAll']);
+Route::get('/manufacturers/{manufacturer}', [ManufacturerController::class, 'get']);
+
+Route::get('/rentals', [RentalController::class, 'getAll']);
+Route::get('/rentals/{rental}', [RentalController::class, 'get']);
+Route::post('/rentals', [RentalController::class, 'store']);
 
 
 

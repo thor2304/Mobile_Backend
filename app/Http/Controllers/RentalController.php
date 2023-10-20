@@ -2,9 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Resources\RentalCollection;
+use App\Http\Resources\RentalResource;
+use App\Models\Rental;
 
 class RentalController extends Controller
 {
-    //
+    public function getAll(): RentalCollection
+    {
+        return new RentalCollection(Rental::all());
+    }
+
+    public function get(Rental $rental): RentalResource
+    {
+        return new RentalResource($rental);
+    }
+
+    public function store(){
+        $user = request()->only('user_id')['user_id'];
+        $car = request()->only('car_id')['car_id'];
+        $start_date = request()->only('start_date')['start_date'];
+        $end_date = request()->only('end_date')['end_date'];
+
+        $rental = Rental::create([
+            'user_id' => $user,
+            'car_id' => $car,
+            'start_date' => $start_date,
+            'end_date' => $end_date
+        ]);
+
+        $rental->save();
+
+        return;
+    }
 }

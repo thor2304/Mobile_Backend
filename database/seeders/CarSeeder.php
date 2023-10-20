@@ -54,7 +54,7 @@ class CarSeeder extends Seeder
             "description"=> "The BMW M3 is a high-performance version of the BMW 3 Series, developed by BMW's in-house motorsport division, BMW M GmbH.",
             "transmission_id" => 2,
             "wheel_size" => 20,
-            "image_name" => "bmw_m3.jpg",
+            "image_name" => "bmw_m3.png",
         ]);
 
         DB::table('cars')->insert([
@@ -68,7 +68,7 @@ class CarSeeder extends Seeder
             "description"=> "The BMW M8 is a high performance variant of the BMW 8 Series marketed under the BMW M sub-brand.",
             "transmission_id" => 2,
             "wheel_size" => 20,
-            "image_name" => "bmw_m8.jpg",
+            "image_name" => "bmw_m8.png",
         ]);
 
         DB::table('cars')->insert([
@@ -82,7 +82,7 @@ class CarSeeder extends Seeder
             "description"=> "The BMW X5 is a mid-size luxury crossover SUV produced by BMW.",
             "transmission_id" => 2,
             "wheel_size" => 21,
-            "image_name" => "bmw_x5.jpg",
+            "image_name" => "bmw_x5.webp",
         ]);
     }
 }
