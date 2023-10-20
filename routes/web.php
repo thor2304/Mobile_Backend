@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CarController::class, 'getAll']);
 Route::get('/cars', [CarController::class, 'getAll']);
+Route::get('/cars/hash', [CarController::class, 'getAll']);
+Route::get('/car/{Car}', [CarController::class, 'getAll']);
+Route::post('/car/{Car}', [CarController::class, 'getAll']);
+Route::get('/rentals', [CarController::class, 'getAll']);
+Route::post('/rentals', [CarController::class, 'getAll']);
 
 
 
