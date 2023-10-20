@@ -3,6 +3,7 @@
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\RentalController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,8 @@ Route::get('/manufacturers/{manufacturer}', [ManufacturerController::class, 'get
 Route::get('/rentals', [RentalController::class, 'getAll']);
 Route::get('/rentals/{rental}', [RentalController::class, 'get']);
 Route::post('/rentals', [RentalController::class, 'store']);
+
+Route::get('/users/{user}', [UserController::class, 'get']);
 
 
 

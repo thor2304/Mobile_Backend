@@ -47,6 +47,11 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::table("users", function (Blueprint $table) {
+            $table->string("phone_number")->unique();
+            $table->string("billing_address");
+        });
+
         Schema::create("rentals", function (Blueprint $table) {
             $table->id();
             $table->foreignId("car_id")->constrained();
@@ -56,10 +61,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::table("users", function (Blueprint $table) {
-            $table->string("phone_number")->unique();
-            $table->string("billing_address");
-        });
+
     }
 
     /**
