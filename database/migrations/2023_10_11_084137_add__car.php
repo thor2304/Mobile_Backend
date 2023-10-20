@@ -43,6 +43,7 @@ return new class extends Migration
             $table->string("description");
             $table->foreignId("transmission_id")->constrained();
             $table->integer("wheel_size");
+            $table->string("image_name");
             $table->timestamps();
         });
 
@@ -56,14 +57,8 @@ return new class extends Migration
         });
 
         Schema::table("users", function (Blueprint $table) {
-            $table->id();
-            $table->string("name");
-            $table->string("email")->unique();
-            $table->string("password");
             $table->string("phone_number")->unique();
             $table->string("billing_address");
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 

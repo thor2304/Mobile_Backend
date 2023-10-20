@@ -27,6 +27,7 @@ class CarResource extends JsonResource
             "description" => $this->description,
             "transmission" => new TransmissionResource($this->transmission),
             "wheelSize" => $this->wheel_size,
+            "imageName" => $this->image_name,
         ];
     }
 }
