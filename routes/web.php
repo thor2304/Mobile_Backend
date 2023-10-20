@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\ManufacturerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CarController::class, 'getAll']);
 Route::get('/cars', [CarController::class, 'getAll']);
+Route::get('/manufacturers', [ManufacturerController::class, 'getAll']);
 Route::get('/cars/hash', [CarController::class, 'getAll']);
 Route::get('/car/{Car}', [CarController::class, 'getAll']);
 Route::post('/car/{Car}', [CarController::class, 'getAll']);

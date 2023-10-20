@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CarCollection;
 use App\Models\Car;
 
 class CarController extends Controller
 {
 
     /**
-     * @return Car[]
+     * @return CarCollection
      */
-    public function getAll(): array
+    public function getAll(): CarCollection
     {
-        return [new Car("BMW", "M5"), new Car("Tesla", "Model S")];
+        return new CarCollection(Car::all());
     }
 }

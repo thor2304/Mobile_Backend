@@ -2,71 +2,45 @@
 
 namespace App\Models;
 
-use JsonSerializable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Car implements JsonSerializable
+class Car extends Model
 {
-    private string $model;
-    private int $id;
-    private int $engineCCSize;
+    use HasFactory;
 
-    private float $pricePerDay;
-    private float $pricePerWeek;
+    protected $fillable = [
+        'model',
+        'manufacturer_id',
+        "engine_cc_size",
+        'fuel_type_id',
+        "price_per_day",
+        "price_per_week",
+        "doors",
+        "description",
+        'transmission_id',
+        "wheel_size",
+    ];
 
-    private float $doors;
-    private string $description;
-
-    private int $wheelSize;
-
-    private FuelType $fuelType;
-
-    private Manufacturer $manufacturer;
-
-    private Transmission $transmission;
-
-    /**
-     * @param string $model
-     * @param int $id
-     * @param int $engineCCSize
-     * @param float $pricePerDay
-     * @param float $pricePerWeek
-     * @param float $doors
-     * @param string $description
-     * @param int $wheelSize
-     * @param FuelType $fuelType
-     * @param Manufacturer $manufacturer
-     * @param Transmission $transmission
-     */
-    public function __construct(string $model, int $id, int $engineCCSize, float $pricePerDay, float $pricePerWeek, float $doors, string $description, int $wheelSize, FuelType $fuelType, Manufacturer $manufacturer, Transmission $transmission)
+    public function manufacturer(): BelongsTo
     {
-        $this->model = $model;
-        $this->id = $id;
-        $this->engineCCSize = $engineCCSize;
-        $this->pricePerDay = $pricePerDay;
-        $this->pricePerWeek = $pricePerWeek;
-        $this->doors = $doors;
-        $this->description = $description;
-        $this->wheelSize = $wheelSize;
-        $this->fuelType = $fuelType;
-        $this->manufacturer = $manufacturer;
-        $this->transmission = $transmission;
+        return $this->belongsTo(Manufacturer::class);
     }
 
+    public function fuelType(): BelongsTo
+    {
+        return $this->belongsTo(FuelType::class);
+    }
 
-    public function jsonSerialize() {
-        return [
-            'manufacturer' => $this->manufacturer,
-            'model' => $this->model,
-            'id' => $this->id,
-            'engineCCSize' => $this->engineCCSize,
-            'pricePerDay' => $this->pricePerDay,
-            'pricePerWeek' => $this->pricePerWeek,
-            'doors' => $this->doors,
-            'description' => $this->description,
-            'wheelSize' => $this->wheelSize,
-            'fuelType' => $this->fuelType,
-            'transmission' => $this->transmission
-        ];
+    public function transmission(): BelongsTo
+    {
+        return $this->belongsTo(Transmission::class);
+    }
+
+    public function rentals(): HasMany
+    {
+        return $this->hasMany(Rental::class);
     }
 }
-

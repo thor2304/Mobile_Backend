@@ -12,15 +12,5 @@ class FuelType extends Model
     const DIESEL = "Diesel";
     const ELECTRIC = "Electric";
 
-    private string $currentFuelType;
-
-    /**
-     * @param string $currentFuelType
-     */
-    public function __construct(string $currentFuelType){
-        if (!in_array($currentFuelType, [self::PETROL, self::DIESEL, self::ELECTRIC])) {
-            throw new \InvalidArgumentException("Invalid fuel type" . $currentFuelType);
-        }
-        $this->currentFuelType = $currentFuelType;
-    }
+    use HasFactory;
 }
