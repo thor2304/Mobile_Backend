@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\RentalCollection;
 use App\Http\Resources\RentalResource;
 use App\Models\Rental;
+use App\Models\User;
 
 class RentalController extends Controller
 {
@@ -13,9 +14,14 @@ class RentalController extends Controller
         return new RentalCollection(Rental::all());
     }
 
-    public function get(Rental $rental): RentalResource
+    public function getByRentalId(Rental $rental): RentalResource
     {
         return new RentalResource($rental);
+    }
+
+    public function getByUserId(User $user): RentalCollection
+    {
+        return new RentalCollection($user->rentals);
     }
 
     public function store(){

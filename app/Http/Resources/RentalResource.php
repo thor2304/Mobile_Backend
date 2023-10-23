@@ -14,12 +14,10 @@ class RentalResource extends JsonResource
      */
     public function toArray($request)
     {
-        $isUserRequest = str_starts_with($request->getRequestUri(), "/users");
-
         return [
             "id"=>$this->id,
             "car"=>new CarResource($this->car),
-            "user"=> $this->when(!$isUserRequest, new UserRessource($this->user)),
+            "user"=> new UserRessource($this->user),
             "startDate"=>$this->start_date,
             "endDate"=>$this->end_date,
         ];

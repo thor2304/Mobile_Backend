@@ -31,7 +31,8 @@ Route::get('/manufacturers', [ManufacturerController::class, 'getAll']);
 Route::get('/manufacturers/{manufacturer}', [ManufacturerController::class, 'get']);
 
 Route::get('/rentals', [RentalController::class, 'getAll']);
-Route::get('/rentals/{rental}', [RentalController::class, 'get']);
+Route::get('/rentals/byRental/{rental}', [RentalController::class, 'getByRentalId']);
+Route::get('/rentals/byUser/{user}', [RentalController::class, 'getByUserId']);
 Route::post('/rentals', [RentalController::class, 'store']);
 
 Route::get('/users/{user}', [UserController::class, 'get']);

@@ -14,13 +14,10 @@ class UserRessource extends JsonResource
      */
     public function toArray($request)
     {
-        $isUserRequest = str_starts_with($request->getRequestUri(), "/users");
-
         return [
             'id' => $this->id,
             'name' => $this->name,
             'email'=>$this->email,
-            "rentals"=> $this->when($isUserRequest, RentalResource::collection($this->rentals)),
         ];
     }
 }
