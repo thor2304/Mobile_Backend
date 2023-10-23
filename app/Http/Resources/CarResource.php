@@ -19,7 +19,7 @@ class CarResource extends JsonResource
             "id" => $this->id,
             "model" => $this->model,
             "manufacturer" => new ManufacturerResource($this->manufacturer),
-            "engineCC" => $this->engine_cc_size,
+            "engineCCSize" => $this->engine_cc_size,
             "fuelType" => new FuelTypeResource($this->fuelType),
             "pricePerDay" => $this->price_per_day,
             "pricePerWeek" => $this->price_per_week,
