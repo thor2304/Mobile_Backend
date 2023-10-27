@@ -71,11 +71,14 @@ return new class extends Migration
      */
     public function down()
     {
-        //
         Schema::dropIfExists("rentals");
         Schema::dropIfExists("cars");
         Schema::dropIfExists("fuel_types");
         Schema::dropIfExists("transmissions");
         Schema::dropIfExists("manufacturers");
+        Schema::table('user', function (Blueprint $table) {
+            $table->dropColumn("phone_number");
+            $table->dropColumn("billing_address");
+        });
     }
 };

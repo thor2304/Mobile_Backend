@@ -82,7 +82,7 @@ class CarSeeder extends Seeder
             "description"=> "The BMW X5 is a mid-size luxury crossover SUV produced by BMW.",
             "transmission_id" => 2,
             "wheel_size" => 21,
-            "image_name" => "bmw_x5.webp",
+            "image_name" => "BMW_X5.webp",
         ]);
     }
 }
