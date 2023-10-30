@@ -56,5 +56,26 @@ class RentalSeeder extends Seeder
             "start_date" => "2023-10-11",
             "end_date" => "2023-10-12",
         ]);
+
+        DB::table("rentals")->insert([
+            "car_id" => 4,
+            "user_id" => 1,
+            "start_date" => "2023-10-11",
+            "end_date" => "2024-10-12",
+        ]);
+
+        DB::table("rentals")->insert([
+            "car_id" => 5,
+            "user_id" => 2,
+            "start_date" => "2023-10-11",
+            "end_date" => "2024-10-12",
+        ]);
+
+        DB::table("rentals")->insert([
+            "car_id" => 1,
+            "user_id" => 2,
+            "start_date" => "2023-10-11",
+            "end_date" => "2024-10-12",
+        ]);
     }
 }
