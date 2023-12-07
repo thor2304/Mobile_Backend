@@ -15,5 +15,8 @@ class VerifyCsrfToken extends Middleware
         "http://127.0.0.1:8000/cars",
         "http://mobiledev.cryptobot.dk/cars",
         "https://mobiledev.cryptobot.dk/cars",
+        "http://127.0.0.1:8000/rentals",
+        "http://mobiledev.cryptobot.dk/rentals",
+        "https://mobiledev.cryptobot.dk/rentals",
     ];
 }
