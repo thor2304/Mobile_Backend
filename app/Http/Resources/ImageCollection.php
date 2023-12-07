@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class CarCollection extends ResourceCollection
+class ImageCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

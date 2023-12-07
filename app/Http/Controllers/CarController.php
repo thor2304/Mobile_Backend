@@ -38,6 +38,7 @@ class CarController extends Controller
         $car->transmission_id = $request->only('transmissionId')['transmissionId'];
         $car->wheel_size = $request->only('wheelSize')['wheelSize'];
         $car->image_name = $request->only('imageName')['imageName'];
+        $car->image_names = $request->only('imageNames')['imageNames'];
 
         $car->save();
 

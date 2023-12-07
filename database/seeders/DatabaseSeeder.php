@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ManufacturerSeeder::class,
             CarSeeder::class,
             RentalSeeder::class,
+            ImageSeeder::class,
         ]);
     }
 }

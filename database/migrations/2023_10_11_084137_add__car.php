@@ -61,6 +61,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create("images", function (Blueprint $table) {
+            $table->id();
+            $table->foreignId("car_id")->constrained();
+            $table->string("image_name");
+            $table->timestamps();
+        });
+
 
     }
 
