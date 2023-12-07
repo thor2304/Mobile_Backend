@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\CarCollection;
 use App\Http\Resources\CarResource;
 use App\Models\Car;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use function Psy\debug;
 
@@ -38,9 +39,13 @@ class CarController extends Controller
         $car->transmission_id = $request->only('transmissionId')['transmissionId'];
         $car->wheel_size = $request->only('wheelSize')['wheelSize'];
         $car->image_name = $request->only('imageName')['imageName'];
-        $car->image_names = $request->only('imageNames')['imageNames'];
-
         $car->save();
+
+        foreach (explode(",", $request->only('imageNames')['imageNames']) as $name) {
+            $imageName = new Image(["car_id" => $car->id, "image_name" => $name]);
+            $imageName->save();
+        }
+
 
 
         return new CarResource($car);
