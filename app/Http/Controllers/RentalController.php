@@ -39,6 +39,6 @@ class RentalController extends Controller
 
         $rental->save();
 
-        return;
+        return new RentalResource($rental);
     }
 }
