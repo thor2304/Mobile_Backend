@@ -16,35 +16,22 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
+        $this->saveForOneCar(1, ["audi_a4.webp", "audi_a6.webp"]);
+        $this->saveForOneCar(2, ["audi_a6.webp", "audi_a4.webp"]);
+        $this->saveForOneCar(3, ["bmw_m3.png", "bmw_m8.png"]);
+        $this->saveForOneCar(4, ["bmw_m8.png", "BMW_X5.webp"]);
+        $this->saveForOneCar(5, ["BMW_X5.webp", "bmw_m8.png"]);
+    }
 
-        $image = new Image(["car_id" => 1, "image_name" => "audi_a4.webp"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 1, "image_name" => "audi_a6.webp"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 2, "image_name" => "audi_a4.webp"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 2, "image_name" => "audi_a6.webp"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 3, "image_name" => "bmw_m3.png"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 3, "image_name" => "bmw_m8.png"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 4, "image_name" => "bmw_m8.png"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 4, "image_name" => "BMW_X5.webp"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 5, "image_name" => "BMW_X5.webp"]);
-        $image->save();
-
-        $image = new Image(["car_id" => 5, "image_name" => "bmw_m8.png"]);
-        $image->save();
+    /**
+     * @param int $carId
+     * @param string[] $names
+     * @return void
+     */
+    private function saveForOneCar(int $carId, array $names){
+        foreach ($names as $name) {
+            $imageName = new Image(["car_id" => $carId, "image_name" => $name]);
+            $imageName->save();
+        }
     }
 }
